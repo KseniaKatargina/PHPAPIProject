@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}Почасовой прогноз погоды {% endblock %}
+{% block body %}
+<div class="weather-info {{ weatherData.fact.condition|lower|replace({' ': '-'}) }}">
+    <h1>Прогноз погоды</h1>
+    <h2>{{ city }}</h2>
+    {% if weatherData %}
+        <div>
+            <p><strong>Дата:</strong> {{ today|date('d.m.Y') }}</p>
+            <p><strong>Температура:</strong> {{ weatherData.fact.temp }}°C</p>
+            <p><strong>Скорость ветра:</strong> {{ weatherData.fact.wind_speed }} м/с</p>
+            <p><strong>Атмосферное давление:</strong> {{ weatherData.fact.pressure_mm }} мм рт. ст.</p>
+            <p><strong>Влажность:</strong> {{ weatherData.fact.humidity }}%</p>
+            <p><strong>Описание погоды:</strong> {{ weatherData.fact.condition }}</p>
+        </div>
+
+        <h2>Почасовой прогноз</h2>
+        <table class="table-with-background">
+            <thead>
+            <tr>
+                <th>Время</th>
+                <th>Температура</th>
+                <th>Скорость ветра</th>
+                <th>Описание</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for hourForecast in weatherData.forecasts[0].hours %}
+                <tr>
+                    <td>{{ hourForecast.hour }}</td>
+                    <td>{{ hourForecast.temp }}°C</td>
+                    <td>{{ hourForecast.wind_speed }} м/с</td>
+                    <td>{{ hourForecast.condition }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Данные о погоде не найдены.</p>
+    {% endif %}
+    <a href="{{ path('weather') }}" class="btn-back">Назад</a>
+</div>
+{% endblock %}

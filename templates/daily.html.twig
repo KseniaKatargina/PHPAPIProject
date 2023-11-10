@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Прогноз погоды по дням{% endblock %}
+
+{% block body %}
+    <div class="weather-info {{ weatherData.fact.condition|lower|replace({' ': '-'}) }}" style="height: 100%">
+        <h1>Прогноз погоды на {{ days }} дня(ей)</h1>
+        <h2>{{ city }}</h2>
+
+        {% if weatherData %}
+            <table>
+                <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Днем (°C)</th>
+                    <th>Ночью (°C)</th>
+                    <th>Описание</th>
+                    <th>Скорость ветра (м/с)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i, day in weatherData['forecasts'] %}
+                    <tr>
+                        <td>{{ dates[i] }}</td>
+                        <td>{{ day['parts']['day']['temp_avg'] }}°C</td>
+                        <td>{{ day['parts']['night']['temp_avg'] }}°C</td>
+                        <td>{{ day['parts']['day']['condition'] }}</td>
+                        <td>{{ day['parts']['day']['wind_speed'] }} м/с</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Извините, прогноз погоды недоступен.</p>
+        {% endif %}
+        <a href="{{ path('weather') }}" class="btn-back">Назад</a>
+    </div>
+{% endblock %}
+
+
+

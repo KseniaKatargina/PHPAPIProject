@@ -1,0 +1,138 @@
+body {
+    font-weight: bold; /* Устанавливаем жирный шрифт для всего текста */
+    color: white; /* Устанавливаем белый цвет текста */
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #83bad9;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.form-container input[type="radio"] {
+    margin: 5px 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-container label {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+
+.form-container input[type="text"],
+.form-container input[type="number"] {
+    margin: 5px 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.form-container button {
+    display: block;
+    margin: 20px auto;
+}
+
+
+div > p {
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 50px;
+}
+
+
+table th {
+    background-color: #bbb3b6;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+
+h1, h2 {
+    text-align: center;
+}
+
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: #b18c8c;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-back:hover {
+    background-color: #b692a5;
+}
+
+.weather-info.clear {
+    background-image: url("../images/clear.jpg");
+}
+
+.weather-info.cloudy {
+    background-image: url('../images/cloudy.jpg');
+}
+
+.weather-info.overcast {
+    background-image: url('../images/overcast.jpg');
+}
+.weather-info.rain {
+    background-image: url('../images/rain.jpeg');
+}
+.weather-info.light-rain {
+    background-image: url('../images/rain.jpeg');
+}
+.weather-info {
+    background-image: url('../images/sunny.jpg');
+}
+
+.background{
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 200px;
+}
+
+
